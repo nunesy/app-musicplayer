@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <audio src="" id="musica"></audio>
+
+  <div class="music-player">
+    
+    <h1 class="nome-musica">Musica 01</h1>
+    <p class="nome-artista">Artista</p> 
+    <div class="disco play">
+     <!-- <img class="img" src="imagem/02.jpg" alt="">-->
+    </div>
+
+    <div class="musica-barra">
+      <input type="range" value="0" class="rolagem-musica">
+      <span class="tempo-atual">00:00</span>
+      <span class="duracao-musica">00:00</span>
+    </div>
+
+    <div class="botoes">
+      <button class="btn anterior-btn"> <img src="imagem/pre.png" alt=""> </button>
+      <button class="play-btn pause">
+        <span></span>
+        <span></span>
+      </button>
+      <button class="btn proximo-btn"> <img src="imagem/nxt.png" alt=""> </button>
+    </div>
+  </div>
+  
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
