@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player Pro</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <audio id="musica" src=""></audio>
+
+  <main class="music-player">
+    
+    <header>
+      <h1 class="nome-musica">Carregando...</h1>
+      <p class="nome-artista">Artista</p> 
+    </header>
+
+    <div class="disco-container">
+       <div class="disco" role="img" aria-label="Capa do álbum"></div>
+    </div>
+
+    <section class="musica-barra">
+      <canvas id="visualizer"></canvas>
+      <input type="range" value="0" min="0" step="1" class="rolagem-musica">
+      <div class="timer">
+        <span class="tempo-atual">00:00</span>
+        <span class="duracao-musica">00:00</span>
+      </div>
+    </section>
+    <nav class="botoes">
+      <button class="btn anterior-btn" aria-label="Anterior">
+        <img src="imagem/pre.png" alt="Anterior">
+      </button>
+      
+      <button class="play-btn pause" aria-label="Play/Pause">
+        <span></span>
+        <span></span>
+      </button>
+      
+      <button class="btn proximo-btn" aria-label="Próximo">
+        <img src="imagem/nxt.png" alt="Próximo">
+      </button>
+    </nav>
+    <section class="playlist">
+    <h2 class="playlist-titulo">Playlist &#x1F918;</h2>
+    <div class="lista-container">
+        </div>
+    </section> 
+  </main>
+    
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #01232e;
+}
+
+.music-player {
+  width: 350px;
+  height: 550px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  color: #819096;
+  text-align: center;
+}
+
+.nome-musica {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nome-artista {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* Disco e Animação */
+.disco {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 30px auto;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.05);
+  animation: rotate 20s linear infinite;
+  animation-play-state: paused; /* Começa parado */
+}
+
+.disco.play {
+  animation-play-state: running; /* Gira quando toca */
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Barra de Progresso */
+.musica-barra {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.rolagem-musica {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 10px;
+  background: #3d5a5e;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.rolagem-musica::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 0;
+  box-shadow: -400px 0 0 400px #7fc8a9;
+}
+
+.timer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Controles */
+.botoes {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.btn, .play-btn {
+  cursor: pointer;
+  border: none;
+  background: #d5eed5;
+  transition: all 0.3s ease;
+}
+
+.btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play-btn {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+/* Efeito Play/Pause com Span */
+.play-btn span {
+  position: absolute;
+  top: 50%;
+  left: 28%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 30px;
+  background: #5f7a61;
+  transition: 0.4s;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.play-btn span:nth-child(2) {
+  left: 58%;
+}
+
+.play-btn.pause span:nth-child(2) {
+  transform: translateY(50%) scaleY(0);
+}
+
+.play-btn.pause span:nth-child(1) {
+  width: 40%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  clip-path: polygon(0 0, 100% 50%, 100% 50%, 0% 100%);
+}
+/* Adicione ao seu arquivo style.css */
+.music-player {
+    width: 350px;
+    min-height: 550px; /* Muda de height para min-height */
+    height: auto;      /* Permite que ele cresça se necessário */
+    /* ... resto do código ... */
+}
+
+#visualizer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Fica atrás de tudo */
+    opacity: 0.3; /* Deixa suave para não atrapalhar a leitura */
+    pointer-events: none; /* Garante que você ainda consiga clicar nos botões */
+}
+
+/* Garante que o conteúdo apareça na frente do canvas */
+header, .disco-container, .musica-barra, .botoes {
+    position: relative;
+    z-index: 1;
+}
+.playlist {
+    margin-top: 30px;
+    text-align: left;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    max-height: 180px; /* Limita a altura para caber no player */
+    overflow-y: auto;  /* Adiciona rolagem se tiver muitas músicas */
+}
+
+.playlist-titulo {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #7fc8a9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.musica-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 5px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.musica-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.musica-item.ativa {
+    background: rgba(127, 200, 169, 0.2);
+    border-left: 4px solid #7fc8a9;
+}
+
+.musica-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    margin-right: 12px;
+}
+
+.musica-item-info p {
+    font-size: 14px;
+    color: #fff;
+}
+
+.musica-item-info span {
+    font-size: 12px;
+    color: #819096;
+}
+
+/* Estilo da barra de rolagem da playlist */
+.playlist::-webkit-scrollbar {
+    width: 5px;
+}
+.playlist::-webkit-scrollbar-thumb {
+    background: #3d5a5e;
+    border-radius: 10px;
+}
